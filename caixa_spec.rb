@@ -33,5 +33,10 @@ RSpec.describe Caixa do
         expect(valor).to eql('1 nota de 50 reais')
       end
     end
+
+    # context 'when de value is not round'
+    #   it 'returns notes' do
+    #     valor = caixa.sacar(115)
+    #     expect()
   end
 end
