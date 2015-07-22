@@ -9,6 +9,7 @@ RSpec.describe Caixa do
       it 'retorna notas' do
         valor = caixa.sacar(10)
         expect(valor).to eql('1 nota de 10 reais')
+        #meu comentario para push
       end
     end
 
