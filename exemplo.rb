@@ -24,9 +24,10 @@ while nota10 >= 10 && valor > 10 do
 	nota10 -= 1
 end
 
-if nota100 != 0
+if valor != 0
 	saida = "O Valor informado nao pode ser sacado"
-	status = nil
+	saque_status = nil
 else
 	saida = "O valor do saque é #{saque}"
+	saque_status = true
 end
