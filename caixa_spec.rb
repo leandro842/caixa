@@ -1,5 +1,5 @@
 require 'rspec'
-require './caixa'
+require './caixa.rb'
 
 RSpec.describe Caixa do
   describe '#sacar' do
@@ -8,28 +8,28 @@ RSpec.describe Caixa do
     context 'quando passo 10 reais' do
       it 'retorna notas' do
         valor = caixa.sacar(10)
-        expect(valor).to eq('1 nota de 10 reais')
+        expect(valor).to eql('1 nota de 10 reais')
       end
     end
 
     context 'quando passo 20 reais' do
       it 'retorna notas' do
         valor = caixa.sacar(20)
-        expect(valor).to eq('1 nota de 20 reais')
+        expect(valor).to eql('1 nota de 20 reais')
       end
     end
 
     context 'quando passo 30 reais' do
       it 'retorna notas' do
         valor = caixa.sacar(30)
-        expect(valor).to eq('1 nota de 20 reais e 1 nota de 10 reais')
+        expect(valor).to eql('1 nota de 20 reais e 1 nota de 10 reais')
       end
     end
 
     context 'quando passo 50 reais' do
       it 'retorna notas' do
-        valor = caixa.sacar(30)
-        expect(valor).to eq('1 nota de 50 reais')
+        valor = caixa.sacar(50)
+        expect(valor).to eql('1 nota de 50 reais')
       end
     end
   end
