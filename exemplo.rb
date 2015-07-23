@@ -40,6 +40,6 @@ class Caixa
 
   def contar_notas_de(valor_nota)
     @valor -= @valor / valor_nota
-    @q[:"quantidade_#{valor_nota}"] #+= @valor / valor_nota
+    @q[:"quantidade_#{valor_nota}"] += @valor / valor_nota
   end
 end
