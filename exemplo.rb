@@ -1,33 +1,45 @@
-#Exemplo #Exemplo #Exemplo #Exemplo #Exemplo #Exemplo #Exemplo #Exemplo
+class Caixa
 
-while nota100 > 0 && valor > 100 do
-	saque += 100
-	valor -= 100
-	nota100 -= 1
-end
+  def sacar(valor)
+  	@valor = valor
+    saida = ''
+    @q = { quantidade_100: 0,
+           quantidade_50:  0,
+           quantidade_20:  0,
+           quantidade_10:  0 }
 
-while nota50 >= 50 && valor > 50 do
-	saque += 50
-	valor -= 50
-	nota50 -= 1
-end
+    contar_notas_de(100)
+    contar_notas_de(50)
+    contar_notas_de(20)
+    contar_notas_de(10)
 
-while nota20 >= 20 && valor > 20 do
-	saque += 20
-	valor -= 20
-	nota20 -= 1
-end
+    if q[:quantidade_100] != 0
+      saida += "#{q[:quantidade_100]} nota de 100 reais"
+    end
 
-while nota10 >= 10 && valor > 10 do
-	saque += 10
-	valor -= 10
-	nota10 -= 1
-end
+    if q[:quantidade_50] != 0 && q[:quantidade_100] != 0
+      saida += " e #{q[:quantidade_50]} nota de 50 reais"
+    elsif q[:quantidade_50] != 0
+      saida += "#{q[:quantidade_50]} nota de 50 reais"
+    end
 
-if valor != 0
-	saida = "O Valor informado nao pode ser sacado"
-	saque_status = nil
-else
-	saida = "O valor do saque é #{saque}"
-	saque_status = true
+    if q[:quantidade_20] != 0 && q[:quantidade_50] != 0 && q[:quantidade_100] != 0
+      saida += " e #{q[:quantidade_20]} nota de 20 reais"
+    elsif q[:quantidade_20] != 0
+      saida += "#{q[:quantidade_20]} nota de 20 reais"
+    end
+
+    if q[:quantidade_10] != 0 && q[:quantidade_20] != 0 && q[:quantidade_50] != 0 && q[:quantidade_100] != 0
+      saida += " e #{:q[quantidade_10]} nota de 10 reais"
+    elsif q[:quantidade_10] != 0
+      saida += "#{q[:quantidade_10]} nota de 10 reais"
+    end
+  end
+
+  private
+
+  def contar_notas_de(valor_nota)
+    @valor -= @valor / valor_nota
+    @q[:"quantidade_#{valor_nota}"] #+= @valor / valor_nota
+  end
 end

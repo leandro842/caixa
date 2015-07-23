@@ -9,7 +9,6 @@ RSpec.describe Caixa do
       it 'retorna notas' do
         valor = caixa.sacar(10)
         expect(valor).to eql('1 nota de 10 reais')
-        #meu comentario para push
       end
     end
 
@@ -34,9 +33,13 @@ RSpec.describe Caixa do
       end
     end
 
-    # context 'when de value is not round'
-    #   it 'returns notes' do
-    #     valor = caixa.sacar(115)
-    #     expect()
+    context 'when try to withdraw 430 R$' do
+      it 'complete the withdrawal operation' do
+        valor = caixa.sacar(430)
+        expect(valor).to eql('4 nota(s) de 100
+          1 nota(s) de 20
+          1 nota(s) de 10')
+      end
+    end
   end
 end
