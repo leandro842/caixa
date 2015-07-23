@@ -1,32 +1,17 @@
 class Caixa
 
   def sacar(valor)
-    @valor = valor
+  	@valor = valor
     saida = ''
     @q = { quantidade_100: 0,
            quantidade_50:  0,
            quantidade_20:  0,
            quantidade_10:  0 }
 
-    while valor >= 100 do
-      valor -= 100
-      q[:quantidade_100] += 1
-    end
-
-    while valor >= 50 do
-      valor -= 50
-      q[:quantidade_50] += 1
-    end
-
-    while valor >= 20 do
-      valor -= 20
-      q[:quantidade_20] += 1
-    end
-
-    while valor >= 10 do
-      valor -= 10
-      q[:quantidade_10] += 1
-    end
+    contar_notas_de(100)
+    contar_notas_de(50)
+    contar_notas_de(20)
+    contar_notas_de(10)
 
     if q[:quantidade_100] != 0
       saida += "#{q[:quantidade_100]} nota de 100 reais"
@@ -49,5 +34,12 @@ class Caixa
     elsif q[:quantidade_10] != 0
       saida += "#{q[:quantidade_10]} nota de 10 reais"
     end
+  end
+
+  private
+
+  def contar_notas_de(valor_nota)
+    @valor -= @valor / valor_nota
+    @q[:"quantidade_#{valor_nota}"] += @valor / valor_nota
   end
 end

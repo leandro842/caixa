@@ -36,9 +36,7 @@ RSpec.describe Caixa do
     context 'when try to withdraw 430 R$' do
       it 'complete the withdrawal operation' do
         valor = caixa.sacar(430)
-        expect(valor).to eql('4 nota(s) de 100
-          1 nota(s) de 20
-          1 nota(s) de 10')
+        expect(valor).to eql('4 nota de 100 reais e 1 nota de 20 reais e 1 nota de 10 reais')
       end
     end
   end
